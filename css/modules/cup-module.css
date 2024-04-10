@@ -1,0 +1,113 @@
+.main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+}
+
+.drawing-section {
+  width: 600px;
+  height: 600px;
+  display: grid;
+  grid-template-columns: auto auto;
+  grid-template-rows: auto auto;
+  background-color: var(--info-color);
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+
+.cup {
+  background-color: var(--light-color);
+  width: var(--cup-width);
+  height: var(--cup-height);
+  grid-column-start: 2;
+  grid-row-start: 2;
+  position: relative;
+  border-radius: 0px 0px 84px 84px;
+}
+
+.cup__plate {
+  width: calc(var(--cup-width)* 1.5);
+  background-color: inherit;
+  height: 20px;
+  bottom: -20px;
+  right: -17px;
+  left: -21%; 
+  position: absolute;
+  border-radius: 0px 0px 84px 84px;
+}
+
+.cup__hand {
+  height: calc(var(--cup-height)/ 2);
+  background-color: inherit;
+  width: 80px;
+  right: -80px;
+  top: 20px;
+  position: absolute;
+  border-radius: 0px 39px 39px 0px;
+}
+
+.cup__hand::after {
+  content: " ";
+  position: absolute;
+  border-radius: 0px 31px 31px 0px;
+  background-color: var(--info-color);
+  top: 13px;
+  bottom: 13px;
+  right: 14px;
+  left: 0;
+}
+
+.cup__steam > * {
+  position: relative;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.cup__steam--1 {
+    animation: steamMovement 2s infinite;
+    translate: 86px;
+    --more: 26px;
+  }
+
+.cup__steam--2 {
+    animation: steamMovement 3s infinite;
+    translate: 90px;
+    --more: -30px
+  }
+
+.cup__steam--3 {
+    animation: steamMovement 4s infinite;
+    translate: 95px;
+    --more: -179px
+  }
+
+
+@keyframes steamMovement {
+  0% {
+    top: calc(var(--more) + 64px);
+    background: var(--light-color);
+    width: 0px;
+    opacity: 0.4;
+  }
+
+  50% {
+    background: var(--light-color);
+    opacity: 0.3;
+  }
+
+  75% {
+    background: var(--light-color);
+    opacity: 0.2;
+  }
+
+  100% {
+    top: calc(var(--more) + -149px);
+    background: var(--light-color);
+    width: 100px;
+    height: 100px;
+    opacity: 0.1;
+  }
+}
